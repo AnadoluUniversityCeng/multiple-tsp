@@ -57,23 +57,23 @@ Depot4: ESKİŞEHİR
 Depot5: TOKAT
   Route1: DÜZCE,TRABZON,MARDİN,ARDAHAN,KARS,ORDU,KOCAELİ,DENİZLİ,KIRKLARELİ,EDİRNE
   Route2: AKSARAY,BİLECİK,ADANA,SİNOP,AMASYA,KİLİS,SAMSUN
-**Total cost is 52308**
+**Total cost is 52308
 ```
 
 Non-verbose example `java -jar target/mTSP.jar -d 2 -s 5` will print city indices instead of city names:
 ```yaml
 Depot1: 18
- Route1: 32,67,27,7,54,6,38,53,73
- Route2: 56,9,72,55,1,12
- Route3: 8,16,19,26,3,29,47,11,24
- Route4: 49,42,25,58,4,22
- Route5: 0,43,77,36,70
+  Route1: 32,67,27,7,54,6,38,53,73
+  Route2: 56,9,72,55,1,12
+  Route3: 8,16,19,26,3,29,47,11,24
+  Route4: 49,42,25,58,4,22
+  Route5: 0,43,77,36,70
 Depot2: 59
- Route1: 51,35,62,57,50
- Route2: 13,80,31,71,75,14,78
- Route3: 30,41,79,48,64,28,39,45,46
- Route4: 61,76,5,68,74,60,33,21,10,65,23
- Route5: 44,40,15,66,63,34,52,37,17,2,20,69
+  Route1: 51,35,62,57,50
+  Route2: 13,80,31,71,75,14,78
+  Route3: 30,41,79,48,64,28,39,45,46
+  Route4: 61,76,5,68,74,60,33,21,10,65,23
+  Route5: 44,40,15,66,63,34,52,37,17,2,20,69
 **Total cost is 51631
 ```
 
