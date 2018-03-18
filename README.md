@@ -15,28 +15,10 @@ In this homework, we will generate 100,000 random solutions to the *fixed destin
 The number of depots and salesman per depot will be our parameters. The cost metric will be total distance in kilometers.
 At the end, we will print the best solution that has the minimum cost among 100,000 random solutions.
 
-To parse command line arguments, you *must* use [JewelCLI](http://jewelcli.lexicalscope.com) library.
-
-```java
-public interface Params {
-
-    @Option(description = "number of depots", shortName = "d", longName = "depots", defaultValue = "5")
-    int getNumDepots();
-
-    @Option(description = "number of salesmen per depot", shortName = {"s"}, longName = {"salesmen", "vehicles"}, defaultValue = "2")
-    int getNumSalesmen();
-
-    @Option(description = "use city names when displaying/printing", shortName = "v", longName = "verbose")
-    boolean getVerbose();
-
-    @Option(helpRequest = true, description = "display help", shortName = "h")
-    boolean getHelp();
-}
-``` 
-
 Your project **must** be a valid maven project. `mvn clean package` must produce an executable jar file named **mTSP.jar** under the target directory.
 This can be done via maven plugins such as [shade](https://maven.apache.org/plugins/maven-shade-plugin) or [assembly](https://maven.apache.org/plugins/maven-assembly-plugin) plugin.
 Optional parameter [finalName](https://maven.apache.org/plugins/maven-shade-plugin/shade-mojo.html#finalName) can be used to change the name of the shaded artifactId.
+To parse command line arguments, you *must* use [JewelCLI](http://jewelcli.lexicalscope.com) library.
 
 For example, `java -jar target/mTSP.jar -d 5 -s 2 -v` would produce something like below.
 Notice that the last line includes the cost metric: the total distance travelled by all salesmen.
