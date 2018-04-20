@@ -77,7 +77,7 @@ In each iteration, one move operation will be selected (among five) based on a r
 If the move improves the solution (i.e., lessen the total distance travelled) then, we will update the best solution at hand. If not, next iteration will be continued.
 To implement this logic, you need to devise a strategy to somehow backup the current solution. 
 So that if the move operation does not improve the solution, it should be possible to rollback to a previous state.
-It is recommended to do a reach on the Internet using the following keywords: *copy constructor*, "deep cloning", "shallow cloning", and *marshalling*.
+It is recommended to do a reach on the Internet using the following keywords: *copy constructor*, *deep cloning*, *shallow cloning*, and *marshalling*.
 It is totally up to you to how to implement this logic, you can even write an method that calculates a cost function without applying the move!
 
 ### Move operations
@@ -91,26 +91,24 @@ In this move we select a random route among all routes and then we swap two node
 Remember to avoid no-operation, we need to select two nodes that are different from each other.
 Example of the move, random node indices are 1 and 7, which are shown in bold.
 ```yaml
-Before: hub: 24	nodes : 64,**29**,72,55,71,12,48,**11**
-After:  hub: 24	nodes : 64,**11**,72,55,71,12,48,**29**
+Before: hub: 24	nodes: 64,**29**,72,55,71,12,48,**11**
+After:  hub: 24	nodes: 64,**11**,72,55,71,12,48,**29**
 ```
 Notice that bold nodes are swapped after the move.
 
 #### swapHubWithNodeInRoute
-Swap hub with a randomly chosen in a route. Here, both the route and the node are randomly chosen.
+Swap hub with a randomly chosen node in a route. Here, both the route and the node are randomly chosen.
 In this move we select a random route among all routes and then we replace the hub with a random node.
 There it is *important* to update the hub in the remaining routes of the initial hub.
 
-Example of the move, random node indices are 1 and 7, which are shown in bold.
+Example of the move, random node index is are 10, which is shown in bold.
 
-```
 Before:
 hub : **49**	
   hub: 49 nodes : 11,20,26,78,30,0,41,63,44,34,**8**,47,14,31,2,69,50
   hub: 49 nodes: 18,54,51,27,37
 After:
 hub : **8**
-  hub : 8 nodes : 11,20,26,78,30,0,41,63,44,34,**49**,47,14,31,2,69,50
-  hub : 8 nodes : 18,54,51,27,37
-```
+  hub: 8 nodes: 11,20,26,78,30,0,41,63,44,34,**49**,47,14,31,2,69,50
+
 Notice that bold node is replaced with the hub in the first route. Notice also that hub of the second route is updated. Nodes of the second route remain intact.
