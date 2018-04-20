@@ -122,10 +122,10 @@ Here it is *important* to select two routes that are different from each other, 
 Example of the move: random node indices are 6 and 7, which are shown in bold.
 ```yaml
 Before:
-  hub: 0    nodes: 22,61,23,28,68,24,**11**,20,1,26,45
-  hub: 3	nodes: 35,74,7,51,59,37,50,**30**,78,62,71,55
+  hub: 0 nodes: 22,61,23,28,68,24,**11**,20,1,26,45
+  hub: 3 nodes: 35,74,7,51,59,37,50,**30**,78,62,71,55
 After:
-  hub: 0	nodes: 22,61,23,28,68,24,**30**,20,1,26,45
-  hub: 3	nodes: 35,74,7,51,59,37,50,**11**,78,62,71,55
+  hub: 0 nodes: 22,61,23,28,68,24,**30**,20,1,26,45
+  hub: 3 nodes: 35,74,7,51,59,37,50,**11**,78,62,71,55
 ```
 Notice that bold nodes are swapped with each other after the move.
