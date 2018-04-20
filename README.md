@@ -128,4 +128,71 @@ After:
   hub: 0 nodes: 22,61,23,28,68,24,**30**,20,1,26,45
   hub: 3 nodes: 35,74,7,51,59,37,50,**11**,78,62,71,55
 ```
-Notice that bold nodes are swapped with each other after the move.
+Notice that bold nodes are swapped with each other after the move. Notice also that this is a cross-route operation.
+
+#### insertNodeInRoute
+This is similar to swapNodesInRoute: instead of swapping, we delete the source node, and then insert it to right of the destination node.
+Note that this operation is only valid on a route having more than *two* nodes.
+
+Example of the move: random node indices are 2 and 6, which are shown in bold.
+```yaml
+Before:
+  hub: 35 nodes: 17,21,**58**,33,23,34,**28**
+After:
+  hub: 35 nodes: 17,21,33,23,34,28,**58**
+```
+Notice that first bold node (source) is deleted and then inserted right after the second bold node (destination).
+
+### insertNodeBetweenRoutes
+This is similar to swapNodesBetweenRoutes: instead of swapping, we delete the source node, and then insert it to right of the destination node.
+
+Example of the move: random node indices are 11 and 4, which are shown in bold.
+```yaml
+Before:
+  hub: 4 nodes: 3,75,35,74,7,52,27,51,54,56,63,**19**,8,47,14,31,6,41,70,18
+  hub: 50 nodes: 72,29,64,48,**12**,55,71,1
+After:
+  hub: 4 nodes: 3,75,35,74,7,52,27,51,54,56,63,8,47,14,31,6,41,70,18
+  hub: 50 nodes: 72,29,64,48,12,**19**,55,71,1
+```
+Notice that first bold node (source) is deleted and then inserted right after the second bold node (destination). Notice also that this is a cross-route operation.
+The number of nodes of the first route is decreased by one. The number of nodes of the second route is increased by one. 
+Thus, first node must have more than two nodes. Otherwise, solution will be invalid after the deletion.
+
+### The result
+
+Do 5,000,000 iterations. At the end you will obtain a much better solution than that those of Part-I.
+Here is one of the solution that I obtained.
+
+```yaml
+Depot1: NİĞDE
+	Route1: NEVŞEHİR,KAYSERİ
+	Route2: GÜMÜŞHANE,RİZE,ARTVİN,ARDAHAN,KARS,ERZURUM,BAYBURT,ERZİNCAN,TUNCELİ,BİNGÖL,DİYARBAKIR,ŞANLIURFA,ADIYAMAN,KAHRAMANMARAŞ,GAZİANTEP,KİLİS,HATAY,OSMANİYE,ADANA,İÇEL
+Depot2: SAKARYA
+	Route1: KÜTAHYA,AFYON,UŞAK,İZMİR,MANİSA,BALIKESİR,BURSA,YALOVA
+	Route2: KARABÜK,BARTIN,ZONGULDAK,İSTANBUL,KIRKLARELİ,EDİRNE,ÇANAKKALE,TEKİRDAĞ,KOCAELİ
+Depot3: ŞIRNAK
+	Route1: HAKKARİ,VAN,IĞDIR,AĞRI,MUŞ,BİTLİS,BATMAN,SİİRT
+	Route2: KIRŞEHİR,KIRIKKALE,ANKARA,ESKİŞEHİR,BİLECİK,DÜZCE,BOLU,ÇANKIRI,KASTAMONU,SİNOP,AMASYA,SİVAS,MALATYA,ELAZIĞ,MARDİN
+Depot4: KONYA
+	Route1: KARAMAN,ANTALYA,DENİZLİ,AYDIN,MUĞLA,BURDUR,ISPARTA
+	Route2: AKSARAY
+Depot5: GİRESUN
+	Route1: TRABZON
+	Route2: TOKAT,YOZGAT,ÇORUM,SAMSUN,ORDU
+**Total cost is 14399
+```
+Notice that 14,399km is less than 51,631km. Also print counts of the moves that caused gains:
+```json
+{"swapHubWithNodeInRoute":30, "insertNodeBetweenRoutes":74, "swapNodesInRoute":39, "swapNodesBetweenRoutes":54, "insertNodeInRoute":42}
+```
+
+Which move does the heuristic algorithm benefit the most?
+
+### Submit your solution
+Submit your best solution in a json format. The details of the format and the submission system coming soon. Stay tuned!
+
+### Checkout the Leaderboard
+See which solutions have the best scores. Coming soon, stay tuned!
+
+:exclamation: For Part-II you will be teaming up with students of Industrial Engineering Department. Prepare yourselves.
