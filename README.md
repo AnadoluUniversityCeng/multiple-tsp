@@ -102,13 +102,14 @@ In this move we select a random route among all routes and then we replace the h
 There it is *important* to update the hub in the remaining routes of the initial hub.
 
 Example of the move, random node index is are 10, which is shown in bold.
-
+```yaml
 Before:
 hub : **49**	
-  hub: 49 nodes : 11,20,26,78,30,0,41,63,44,34,**8**,47,14,31,2,69,50
+  hub: 49 nodes: 11,20,26,78,30,0,41,63,44,34,**8**,47,14,31,2,69,50
   hub: 49 nodes: 18,54,51,27,37
 After:
 hub : **8**
   hub: 8 nodes: 11,20,26,78,30,0,41,63,44,34,**49**,47,14,31,2,69,50
-
+  hub: 8 nodes: 18,54,51,27,37
+```
 Notice that bold node is replaced with the hub in the first route. Notice also that hub of the second route is updated. Nodes of the second route remain intact.
