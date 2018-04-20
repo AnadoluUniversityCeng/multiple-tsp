@@ -76,7 +76,7 @@ In Part-II, we will define five different move operations, which will be detaile
 In each iteration, one move operation will be selected (among five) based on a random manner, and then it will be applied to the current solution.
 If the move improves the solution (i.e., lessen the total distance travelled) then, we will update the best solution at hand. If not, next iteration will be continued.
 To implement this logic, you need to devise a strategy to somehow backup the current solution. 
-So that if the move operation does not improve the solution, it should be possible to rollback to a previous state.
+So that if the subsequent move operation does not improve the solution, it should be possible to rollback to a previous state.
 It is recommended to do a reach on the Internet using the following keywords: *copy constructor*, *deep cloning*, *shallow cloning*, and *marshalling*.
 It is totally up to you to how to implement this logic, you can even write an method that calculates a cost function without applying the move!
 
@@ -101,7 +101,7 @@ Swap hub with a randomly chosen node in a route. Here, both the route and the no
 In this move we select a random route among all routes and then we replace the hub with a random node.
 There it is *important* to update the hub in the remaining routes of the initial hub.
 
-Example of the move, random node index is are 10, which is shown in bold.
+Example of the move, random node index is 10, which is shown in bold.
 ```yaml
 Before:
 hub : **49**	
