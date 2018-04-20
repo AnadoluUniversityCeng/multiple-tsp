@@ -161,36 +161,42 @@ Thus, first node must have more than two nodes. Otherwise, solution will be inva
 
 ### The result
 
-Do 5,000,000 iterations. At the end you will obtain a much better solution than that those of Part-I.
-Here is one of the solution that I obtained.
+Do 5,000,000 iterations. At the end you will obtain a much better solution than that those of [Part-I](##Part-I).
+Here is one of the solutions that I obtained.
 
 ```yaml
 Depot1: NİĞDE
-	Route1: NEVŞEHİR,KAYSERİ
-	Route2: GÜMÜŞHANE,RİZE,ARTVİN,ARDAHAN,KARS,ERZURUM,BAYBURT,ERZİNCAN,TUNCELİ,BİNGÖL,DİYARBAKIR,ŞANLIURFA,ADIYAMAN,KAHRAMANMARAŞ,GAZİANTEP,KİLİS,HATAY,OSMANİYE,ADANA,İÇEL
+  Route1: NEVŞEHİR,KAYSERİ
+  Route2: GÜMÜŞHANE,RİZE,ARTVİN,ARDAHAN,KARS,ERZURUM,BAYBURT,ERZİNCAN,TUNCELİ,BİNGÖL,DİYARBAKIR,ŞANLIURFA,ADIYAMAN,KAHRAMANMARAŞ,GAZİANTEP,KİLİS,HATAY,OSMANİYE,ADANA,İÇEL
 Depot2: SAKARYA
-	Route1: KÜTAHYA,AFYON,UŞAK,İZMİR,MANİSA,BALIKESİR,BURSA,YALOVA
-	Route2: KARABÜK,BARTIN,ZONGULDAK,İSTANBUL,KIRKLARELİ,EDİRNE,ÇANAKKALE,TEKİRDAĞ,KOCAELİ
+  Route1: KÜTAHYA,AFYON,UŞAK,İZMİR,MANİSA,BALIKESİR,BURSA,YALOVA
+  Route2: KARABÜK,BARTIN,ZONGULDAK,İSTANBUL,KIRKLARELİ,EDİRNE,ÇANAKKALE,TEKİRDAĞ,KOCAELİ
 Depot3: ŞIRNAK
-	Route1: HAKKARİ,VAN,IĞDIR,AĞRI,MUŞ,BİTLİS,BATMAN,SİİRT
-	Route2: KIRŞEHİR,KIRIKKALE,ANKARA,ESKİŞEHİR,BİLECİK,DÜZCE,BOLU,ÇANKIRI,KASTAMONU,SİNOP,AMASYA,SİVAS,MALATYA,ELAZIĞ,MARDİN
+  Route1: HAKKARİ,VAN,IĞDIR,AĞRI,MUŞ,BİTLİS,BATMAN,SİİRT
+  Route2: KIRŞEHİR,KIRIKKALE,ANKARA,ESKİŞEHİR,BİLECİK,DÜZCE,BOLU,ÇANKIRI,KASTAMONU,SİNOP,AMASYA,SİVAS,MALATYA,ELAZIĞ,MARDİN
 Depot4: KONYA
-	Route1: KARAMAN,ANTALYA,DENİZLİ,AYDIN,MUĞLA,BURDUR,ISPARTA
-	Route2: AKSARAY
+  Route1: KARAMAN,ANTALYA,DENİZLİ,AYDIN,MUĞLA,BURDUR,ISPARTA
+  Route2: AKSARAY
 Depot5: GİRESUN
-	Route1: TRABZON
-	Route2: TOKAT,YOZGAT,ÇORUM,SAMSUN,ORDU
+  Route1: TRABZON
+  Route2: TOKAT,YOZGAT,ÇORUM,SAMSUN,ORDU
 **Total cost is 14399
 ```
 Notice that 14,399km is less than 51,631km. Also print counts of the moves that caused gains:
 ```json
-{"swapHubWithNodeInRoute":30, "insertNodeBetweenRoutes":74, "swapNodesInRoute":39, "swapNodesBetweenRoutes":54, "insertNodeInRoute":42}
+{
+  "swapHubWithNodeInRoute": 30,
+  "insertNodeBetweenRoutes": 74,
+  "swapNodesInRoute": 39,
+  "swapNodesBetweenRoutes": 54,
+  "insertNodeInRoute": 42
+}
 ```
 
 Which move does the heuristic algorithm benefit the most?
 
 ### Submit your solution
-Submit your best solution in a json format. The details of the format and the submission system coming soon. Stay tuned!
+Submit your best solution in a [json](https://github.com/google/gson) format. The details of the format and the submission system coming soon. Stay tuned!
 
 ### Checkout the Leaderboard
 See which solutions have the best scores. Coming soon, stay tuned!
