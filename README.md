@@ -71,7 +71,7 @@ In the second part of the homework, we will apply a heuristic algorithm to our *
 The term heuristic is used for algorithms which find solutions among all possible ones, but they do not guarantee that the optimal will be found.
 [Heuristic algorithms](https://optimization.mccormick.northwestern.edu/index.php/Heuristic_algorithms) often times used to solve *NP*-complete problems.
 
-The heuristic will **iteratively** work on the solution (best of the 100,000 random solutions) obtained from the Part-I. 
+The heuristic will **iteratively** work on the solution (best of the 100,000 random solutions) obtained from the [Part-I](#part-i). 
 In Part-II, we will define five different move operations, which will be detailed in the following subsections.
 In each iteration, one move operation will be selected (among five) based on a random manner, and then it will be applied to the current solution.
 If the move improves the solution (i.e., lessen the total distance travelled) then, we will update the best solution at hand. If not, next iteration will be continued.
@@ -115,7 +115,7 @@ hub : **8**
 Notice that bold node is replaced with the hub in the first route. Notice also that hub of the second route is updated. Nodes of the second route remain intact.
 
 #### swapNodesBetweenRoutes
-This is similar to swapNodesInRoute, but this time we will be using two different routes.
+This is similar to [swapNodesInRoute](#swapnodesinroute), but this time we will be using two different routes.
 In this move we select two random routes (that are different) among all routes. Then, we select a random node in each route and then swap them.
 Here it is *important* to select two routes that are different from each other, otherwise this move will be identical to swapNodesInRoute.
 
@@ -131,7 +131,7 @@ After:
 Notice that bold nodes are swapped with each other after the move. Notice also that this is a cross-route operation.
 
 #### insertNodeInRoute
-This is similar to swapNodesInRoute: instead of swapping, we delete the source node, and then insert it to right of the destination node.
+This is similar to [swapNodesInRoute](#swapnodesinroute): instead of swapping, we delete the source node, and then insert it to right of the destination node.
 Note that this operation is only valid on a route having more than *two* nodes.
 
 Example of the move: random node indices are 2 and 6, which are shown in bold.
@@ -144,7 +144,7 @@ After:
 Notice that first bold node (source) is deleted and then inserted right after the second bold node (destination).
 
 ### insertNodeBetweenRoutes
-This is similar to swapNodesBetweenRoutes: instead of swapping, we delete the source node, and then insert it to right of the destination node.
+This is similar to [swapNodesBetweenRoutes](#swapnodesbetweenroutes): instead of swapping, we delete the source node, and then insert it to right of the destination node.
 
 Example of the move: random node indices are 11 and 4, which are shown in bold.
 ```yaml
@@ -161,7 +161,7 @@ Thus, first node must have more than two nodes. Otherwise, solution will be inva
 
 ### The result
 
-Do 5,000,000 iterations. At the end you will obtain a much better solution than that those of [Part-I](##Part-I).
+Do 5,000,000 iterations. At the end you will obtain a much better solution than that those of [Part-I](#part-i).
 Here is one of the solutions that I obtained.
 
 ```yaml
