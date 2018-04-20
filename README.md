@@ -89,19 +89,19 @@ Here comes the five move operations that the heuristic will be using.
 Swap two nodes in a route. Here, both the route and the two nodes are randomly chosen.
 In this move we select a random route among all routes and then we swap two nodes.
 Remember to avoid no-operation, we need to select two nodes that are different from each other.
-Example of the move, random node indices are 1 and 7, which are shown in bold.
+Example of the move: random node indices are 1 and 7, which are shown in bold.
 ```yaml
 Before: hub: 24	nodes: 64,**29**,72,55,71,12,48,**11**
 After:  hub: 24	nodes: 64,**11**,72,55,71,12,48,**29**
 ```
-Notice that bold nodes are swapped after the move.
+Notice that bold nodes are swapped with each other after the move.
 
 #### swapHubWithNodeInRoute
 Swap hub with a randomly chosen node in a route. Here, both the route and the node are randomly chosen.
 In this move we select a random route among all routes and then we replace the hub with a random node.
-There it is *important* to update the hub in the remaining routes of the initial hub.
+Here it is *crucial* to update the hub in the remaining routes of the initial hub.
 
-Example of the move, random node index is 10, which is shown in bold.
+Example of the move: random node index is 10, which is shown in bold.
 ```yaml
 Before:
 hub : **49**	
@@ -113,3 +113,19 @@ hub : **8**
   hub: 8 nodes: 18,54,51,27,37
 ```
 Notice that bold node is replaced with the hub in the first route. Notice also that hub of the second route is updated. Nodes of the second route remain intact.
+
+#### swapNodesBetweenRoutes
+This is similar to swapNodesInRoute, but this time we will be using two different routes.
+In this move we select two random routes (that are different) among all routes. Then, we select a random node in each route and then swap them.
+Here it is *important* to select two routes that are different from each other, otherwise this move will be identical to swapNodesInRoute.
+
+Example of the move: random node indices are 6 and 7, which are shown in bold.
+```yaml
+Before:
+  hub: 0    nodes: 22,61,23,28,68,24,**11**,20,1,26,45
+  hub: 3	nodes: 35,74,7,51,59,37,50,**30**,78,62,71,55
+After:
+  hub: 0	nodes: 22,61,23,28,68,24,**30**,20,1,26,45
+  hub: 3	nodes: 35,74,7,51,59,37,50,**11**,78,62,71,55
+```
+Notice that bold nodes are swapped with each other after the move.
