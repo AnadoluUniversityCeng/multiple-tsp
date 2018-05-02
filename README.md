@@ -195,10 +195,59 @@ Notice that 14,399km is less than 51,631km. Also print counts of the moves that 
 
 Which move does the heuristic algorithm benefit the most?
 
-### Submit your solution
-Submit your best solution in a [json](https://github.com/google/gson) format. The details of the format and the submission system coming soon. Stay tuned!
+### Submit your solution -d 4 -s 2 :new:
+Save your best solution (for numDepots=4 and numSalesmen=2) in a file named `solution.json` and save it at the top-level directory
+(near the pom.xml and the README.md files). Commit and push your `solution.json` file to your repository.
+Here it does not matter how you obtain best solution. It can be be obtained from any heuristic algorithm (random or hill climbing).
+Or you can use commercial solvers if you want to: [GAMS](https://www.gams.com), [Gurobi](http://www.gurobi.com), [CPLEX](https://www.ibm.com/analytics/data-science/prescriptive-analytics/cplex-optimizer) etc.
+You can even construct it manually!!
+An example of a solution rendered in [JSON](https://github.com/google/gson) format is as follows:
+```json
+{
+  "solution": [
+    {
+      "depot": "18",
+      "routes": [
+        "17 34 50 56 13 74 64",
+        "66 44 67 52 62 37 30 1 58 42 48 79 2"
+      ]
+    },
+    {
+      "depot": "5",
+      "routes": [
+        "32 27 28 68 11 38 8",
+        "23 55 7 4 49 36 77 47"
+      ]
+    },
+    {
+      "depot": "9",
+      "routes": [
+        "53 73 80 29 33 19 61 75",
+        "16 63 70 39 71 3 54 59 72 51"
+      ]
+    },
+    {
+      "depot": "26",
+      "routes": [
+        "20 43 0 21 40 15 65 22 69 41 24 35 57 25",
+        "14 31 10 60 12 46 6 76 45 78"
+      ]
+    }
+  ]
+}
+```
+
+The grading system will checkout your `solution.json` file and will calculate its cost function.
+Of course the solution must be valid. Some sanity checks will be performed.
+Any solution violating one of the rules will be rejected by the scoring system. 
+
+Other than that, we will run your program on the server.
+The solution that your program will find/produce will be saved into a json file too (same format).
+But this time the name of the json file will include the parameters. 
+If the program ran with `-d 4 -s 2`, the result will be saved into `solution_d4s2.json`
 
 ### Checkout the Leaderboard
+
 See which solutions have the best scores. Coming soon, stay tuned!
 
 :exclamation: For Part-II you will be teaming up with students of Industrial Engineering Department. Prepare yourselves.
