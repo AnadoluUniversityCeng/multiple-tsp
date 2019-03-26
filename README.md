@@ -11,6 +11,8 @@ The cost metric can represent cost, distance, or time. The requirements on the s
 **Multiple depots**: Instead of one depot, the multi-depot *m*TSP has a set of depots, with m<sub>j</sub> salesmen at each depot *j*. 
 In the *fixed destination* version, a salesman returns to the same depot from which he started.
 
+Please keep in mind that this project is based on the 81 cities of **Turkey** while examining sample solutions given below.
+
 ## Part-I
 
 In this part of the homework, we will generate 100,000 random solutions to the *fixed destination* version of the multi-depot *m*TSP.
