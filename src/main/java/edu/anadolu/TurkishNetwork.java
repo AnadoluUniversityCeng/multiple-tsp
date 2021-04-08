@@ -125,7 +125,7 @@ class TurkishNetwork {
         System.out.println(";");
 
         for (int i : sorted)
-            System.out.printf("%s\t%.5g\n", cities[i], weights[i]);
+            System.out.printf("%s\t%d\n", cities[i], weights[i]);
 
     }
 
@@ -133,17 +133,16 @@ class TurkishNetwork {
     /**
      * https://mkoz.wordpress.com/2012/08/11/turkiye-illerinin-komsuluk-cizgesi/
      **/
-    private static final double[] weights = new double[cities.length];
+    private static final int[] weights = new int[cities.length];
     private static final int[] sorted;
 
     static {
         for (int i = 0; i < cities.length; i++) {
-            weights[i] = 0.0;
+            weights[i] = 0;
             for (int j = 0; j < cities.length; j++) {
                 if (i == j) continue;
-                weights[i] += 1.0 / distance[i][j];
+                weights[i] += distance[i][j];
             }
-            weights[i] /= distance.length - 1;
         }
         sorted = sorted();
     }
@@ -151,12 +150,8 @@ class TurkishNetwork {
     private static int[] sorted() {
         return IntStream.range(0, cities.length)
                 .boxed()
-                .sorted(Comparator.comparingDouble(TurkishNetwork::weight).reversed())
+                .sorted(Comparator.comparingInt(i -> weights[i]))
                 .mapToInt(y -> y)
                 .toArray();
-    }
-
-    private static double weight(int i) {
-        return weights[i];
     }
 }
