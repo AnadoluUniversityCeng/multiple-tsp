@@ -1,5 +1,8 @@
 package edu.anadolu;
 
+import java.util.Comparator;
+import java.util.stream.IntStream;
+
 /**
  * İller Arası Mesafe Cetveli
  * https://www.kgm.gov.tr/SiteCollectionDocuments/KGMdocuments/Root/Uzakliklar/ilmesafe.xls
@@ -10,7 +13,7 @@ class TurkishNetwork {
     }
 
     static final String[] cities = new String[]{
-            "ADANA", "ADIYAMAN", "AFYON", "AĞRI", "AMASYA", "ANKARA", "ANTALYA", "ARTVİN", "AYDIN", "BALIKESİR", "BİLECİK", "BİNGÖL", "BİTLİS", "BOLU", "BURDUR", "BURSA", "ÇANAKKALE", "ÇANKIRI", "ÇORUM", "DENİZLİ", "DİYARBAKIR", "EDİRNE", "ELAZIĞ", "ERZİNCAN", "ERZURUM", "ESKİŞEHİR", "GAZİANTEP", "GİRESUN", "GÜMÜŞHANE", "HAKKARİ", "HATAY", "ISPARTA", "İÇEL", "İSTANBUL", "İZMİR", "KARS", "KASTAMONU", "KAYSERİ", "KIRKLARELİ", "KIRŞEHİR", "KOCAELİ", "KONYA", "KÜTAHYA", "MALATYA", "MANİSA", "KAHRAMANMARAŞ", "MARDİN", "MUĞLA", "MUŞ", "NEVŞEHİR", "NİĞDE", "ORDU", "RİZE", "SAKARYA", "SAMSUN", "SİİRT", "SİNOP", "SİVAS", "TEKİRDAĞ", "TOKAT", "TRABZON", "TUNCELİ", "ŞANLIURFA", "UŞAK", "VAN", "YOZGAT", "ZONGULDAK", "AKSARAY", "BAYBURT", "KARAMAN", "KIRIKKALE", "BATMAN", "ŞIRNAK", "BARTIN", "ARDAHAN", "IĞDIR", "YALOVA", "KARABÜK", "KİLİS", "OSMANİYE", "DÜZCE"
+            "ADANA", "ADIYAMAN", "AFYONKARAHİSAR", "AĞRI", "AMASYA", "ANKARA", "ANTALYA", "ARTVİN", "AYDIN", "BALIKESİR", "BİLECİK", "BİNGÖL", "BİTLİS", "BOLU", "BURDUR", "BURSA", "ÇANAKKALE", "ÇANKIRI", "ÇORUM", "DENİZLİ", "DİYARBAKIR", "EDİRNE", "ELAZIĞ", "ERZİNCAN", "ERZURUM", "ESKİŞEHİR", "GAZİANTEP", "GİRESUN", "GÜMÜŞHANE", "HAKKARİ", "HATAY", "ISPARTA", "MERSİN", "İSTANBUL", "İZMİR", "KARS", "KASTAMONU", "KAYSERİ", "KIRKLARELİ", "KIRŞEHİR", "KOCAELİ (İZMİT)", "KONYA", "KÜTAHYA", "MALATYA", "MANİSA", "KAHRAMANMARAŞ", "MARDİN", "MUĞLA", "MUŞ", "NEVŞEHİR", "NİĞDE", "ORDU", "RİZE", "SAKARYA (ADAPAZARI)", "SAMSUN", "SİİRT", "SİNOP", "SİVAS", "TEKİRDAĞ", "TOKAT", "TRABZON", "TUNCELİ", "ŞANLIURFA", "UŞAK", "VAN", "YOZGAT", "ZONGULDAK", "AKSARAY", "BAYBURT", "KARAMAN", "KIRIKKALE", "BATMAN", "ŞIRNAK", "BARTIN", "ARDAHAN", "IĞDIR", "YALOVA", "KARABÜK", "KİLİS", "OSMANİYE", "DÜZCE"
     };
 
     // https://www.kgm.gov.tr/SiteCollectionDocuments/KGMdocuments/Root/Uzakliklar/ilmesafe.xls
@@ -97,4 +100,63 @@ class TurkishNetwork {
             {87, 248, 662, 879, 613, 579, 622, 948, 961, 990, 860, 549, 645, 777, 744, 929, 1188, 664, 647, 842, 438, 1265, 407, 672, 722, 777, 125, 730, 788, 811, 129, 704, 156, 1035, 988, 925, 770, 366, 1246, 464, 924, 445, 762, 309, 972, 105, 450, 933, 656, 376, 294, 717, 929, 887, 730, 620, 871, 432, 1166, 501, 854, 541, 262, 777, 806, 563, 852, 354, 801, 379, 564, 534, 622, 869, 955, 982, 986, 801, 159, 0, 822},
             {735, 981, 375, 1190, 454, 236, 638, 1083, 671, 377, 168, 1095, 1285, 45, 516, 226, 497, 278, 397, 560, 1140, 447, 989, 820, 1010, 246, 894, 711, 873, 1580, 926, 515, 728, 217, 551, 1210, 290, 557, 428, 423, 106, 501, 275, 891, 516, 818, 1219, 705, 1202, 514, 590, 667, 922, 69, 517, 1326, 462, 674, 348, 568, 847, 951, 1031, 414, 1418, 454, 113, 468, 909, 612, 314, 1240, 1391, 200, 1191, 1301, 171, 179, 954, 822, 0}
     };
+
+    public static void main(String[] args) {
+
+        System.out.print("\t");
+        for (int i = 0; i < 81; i++) {
+            System.out.print(" i" + (i + 1));
+        }
+        System.out.println();
+
+        for (int i = 0; i < 81; i++) {
+            System.out.print(" i" + (i + 1));
+
+            for (int k = 0; k <= i; k++) System.out.print("   ");
+
+            for (int j = i + 1; j < 81; j++) {
+                System.out.print(" " + distance[i][j]);
+            }
+
+            System.out.println();
+        }
+
+
+        System.out.println(";");
+
+        for (int i : sorted)
+            System.out.printf("%s\t%.5g\n", cities[i], weights[i]);
+
+    }
+
+
+    /**
+     * https://mkoz.wordpress.com/2012/08/11/turkiye-illerinin-komsuluk-cizgesi/
+     **/
+    private static final double[] weights = new double[cities.length];
+    private static final int[] sorted;
+
+    static {
+        for (int i = 0; i < cities.length; i++) {
+            weights[i] = 0.0;
+            for (int j = 0; j < cities.length; j++) {
+                if (i == j) continue;
+                weights[i] += 1.0 / distance[i][j];
+            }
+            weights[i] /= distance.length - 1;
+        }
+        sorted = sorted();
+    }
+
+    private static int[] sorted() {
+        return IntStream.range(0, cities.length)
+                .boxed()
+                .sorted(Comparator.comparingDouble(TurkishNetwork::weight).reversed())
+                .mapToInt(y -> y)
+                .toArray();
+    }
+
+    private static double weight(int i) {
+        return weights[i];
+    }
 }
